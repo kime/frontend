@@ -29,6 +29,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@nebular/theme/styles/prebuilt/default.css",
               "src/main.scss"
             ],
             "scripts": []
@@ -79,6 +80,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
+              "node_modules/@nebular/theme/styles/prebuilt/default.css",
               "src/main.scss"
             ],
             "assets": [
