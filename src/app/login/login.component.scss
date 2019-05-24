@@ -1,6 +1,12 @@
 @import "src/theme/theme-variables";
 @import "~bootstrap/scss/mixins/_breakpoints";
 
+[nbInput] {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
 .login-container {
   position: absolute;
   top: 0;
@@ -18,8 +24,15 @@
   min-height: 100%;
 }
 
-.ng-invalid.ng-touched:not(form) {
-  border-left: 4px solid theme-color("danger");
+.login-checkbox {
+  margin-top: 0.2rem;
+  float: right;
+}
+
+.login-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @include media-breakpoint-down(xs) {

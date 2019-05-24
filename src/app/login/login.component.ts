@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private i18nService: I18nService,
     private authenticationService: AuthenticationService
   ) {
     this.createForm();
@@ -53,18 +52,6 @@ export class LoginComponent implements OnInit {
           this.error = error;
         }
       );
-  }
-
-  setLanguage(language: string) {
-    this.i18nService.language = language;
-  }
-
-  get currentLanguage(): string {
-    return this.i18nService.language;
-  }
-
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
   }
 
   private createForm() {

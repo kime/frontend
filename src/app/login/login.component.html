@@ -1,19 +1,28 @@
-<div class="login-container bg-light">
+<nb-layout>
+  <nb-layout-header fixed>Kime</nb-layout-header>
+
+  <nb-layout-column class="login-box">
+    <nb-card [nbSpinner]="isLoading" nbSpinnerSize="xlarge">
+      <nb-card-header>Get started!</nb-card-header>
+      <nb-card-body>
+          <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+            <nb-alert status="warning" [hidden]="!error || isLoading">Incorrect username or password!</nb-alert>
+            <input type="text" nbInput fullWidth fieldSize="medium" formControlName="username" placeholder="Username">
+            <input type="password" nbInput fullWidth fieldSize="medium" formControlName="password" placeholder="Password">
+            <button nbButton [size]="'small'" type="submit" [disabled]="loginForm.invalid || isLoading">Login</button>
+            <nb-checkbox class="login-checkbox" formControlName="remember">Keep me logged in</nb-checkbox>
+          </form>
+      </nb-card-body>
+
+      <nb-card-footer class="login-footer">
+        <a routerLink="/signup" routerLinkActive="active">Don't have an account?</a>
+      </nb-card-footer>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>
+
+<!-- <div class="login-container bg-light">
   <div class="login-box">
-    <h1 translate>APP_NAME</h1>
-    <div>
-      <h6 class="d-inline-block">v{{version}}</h6>
-      <div class="d-inline-block ml-3" ngbDropdown>
-        <button id="language-dropdown" class="btn btn-sm btn-secondary" ngbDropdownToggle>
-          {{currentLanguage}}
-        </button>
-        <div ngbDropdownMenu aria-labelledby="language-dropdown">
-          <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
-            {{language}}
-          </button>
-        </div>
-      </div>
-    </div>
     <div class="container">
       <div class="card col-md-6 mt-3 mx-auto">
         <div class="card-body">
@@ -28,20 +37,10 @@
               <label class="d-block">
                 <input type="text" class="form-control" formControlName="username" autocomplete="username"
                        [placeholder]="'Username' | translate"/>
-                <span hidden translate>Username</span>
-                <small [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
-                       class="text-danger" translate>
-                  Username is required
-                </small>
               </label>
               <label class="d-block">
                 <input type="password" class="form-control" formControlName="password" autocomplete="current-password"
                        [placeholder]="'Password' | translate" required/>
-                <span hidden translate>Password</span>
-                <small [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
-                       class="text-danger" translate>
-                  Password is required
-                </small>
               </label>
               <div class="form-check">
                 <label class="form-check-label">
@@ -59,4 +58,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

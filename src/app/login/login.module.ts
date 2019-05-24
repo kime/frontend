@@ -6,9 +6,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { ThemeModule } from '../@theme/theme.module'
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, TranslateModule, NgbModule, LoginRoutingModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    NgbModule,
+    ThemeModule,
+    LoginRoutingModule
+  ],
   declarations: [LoginComponent]
 })
 export class LoginModule {}
