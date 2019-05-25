@@ -1,9 +1,28 @@
 @import "src/theme/theme-variables";
 
-.navbar {
-  margin-bottom: $spacer;
+.logo-containter {
+  display: flex;
+  align-items: center;
 }
 
-.nav-link.dropdown-toggle {
-  cursor: pointer;
+.nav-containter {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.control-item {
+  display: block;
+}
+
+.logo {
+  padding: 0 nb-theme(padding);
+  font-size: 1.75rem;
+  font-weight: nb-theme(font-weight-bolder);
+  white-space: nowrap;
+}
+
+.right {
+  justify-content: flex-end;
+  width: 100%;
 }
