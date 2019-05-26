@@ -1,3 +1,7 @@
+# Updating angular-related dependencies
+
+See the [Angular update website](https://update.angular.io) to guide you through the updating/upgrading steps.
+
 # Updating npm dependencies
 
 - Check outdated packages
@@ -35,7 +39,3 @@ npm shrinkwrap --dev
 This will create a file `npm-shrinkwrap.json` alongside your `package.json` files.
 
 > Do not forget  to run shrinkwrap each time you manually update your dependencies!
-
-# Updating angular-related dependencies
-
-See the [Angular update website](https://update.angular.io) to guide you through the updating/upgrading steps.

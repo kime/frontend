@@ -29,14 +29,3 @@ This is where you can setup one or more proxy rules.
 
 For the complete set of options, see the `http-proxy-middleware`
 [documentation](https://github.com/chimurai/http-proxy-middleware#options).
-
-### Corporate proxy support
-
-To allow external API calls redirection through a corporate proxy, you will also find a `setupForCorporateProxy()`
-function in the proxy configuration file. By default, this method configures a corporate proxy agent based on the 
-`HTTP_PROXY` environment variable, see the [corporate proxy documentation](corporate-proxy.md) for more details.
-
-If you need to, you can further customize this function to fit the network of your working environment.
-
-If your corporate proxy use a custom SSL certificate, your may need to add the `secure: false` option to your
-backend proxy configuration.
