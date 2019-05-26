@@ -8,7 +8,8 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { ImageService } from './image.service';
 import { ThemeModule } from '../@theme/theme.module';
-import { GalleryComponent } from './gallery/gallery.component'
+import { GalleryComponent } from './gallery/gallery.component';
+import { ImageContainerComponent } from './gallery/image-container/image-container.component'
 
 @NgModule({
   imports:
@@ -20,7 +21,7 @@ import { GalleryComponent } from './gallery/gallery.component'
     HomeRoutingModule,
     ThemeModule
   ],
-  declarations: [HomeComponent, GalleryComponent],
+  declarations: [HomeComponent, GalleryComponent, ImageContainerComponent],
   providers: [ImageService]
 })
 export class HomeModule {}
