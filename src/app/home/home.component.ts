@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
-import { QuoteService } from './quote.service';
+import { ImageService } from './image.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   quote: string;
   isLoading: boolean;
 
-  constructor(private quoteService: QuoteService) {}
+  constructor(private quoteService: ImageService) {}
 
   ngOnInit() {
     this.isLoading = true;
