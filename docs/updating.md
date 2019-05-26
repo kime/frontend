@@ -1,8 +1,4 @@
-# Updating angular-related dependencies
-
-See the [Angular update website](https://update.angular.io) to guide you through the updating/upgrading steps.
-
-# Updating npm dependencies
+# Updating dependencies
 
 - Check outdated packages
 ```sh
