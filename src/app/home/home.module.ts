@@ -6,7 +6,7 @@ import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
+import { ImageService } from './image.service';
 import { ThemeModule } from '../@theme/theme.module'
 
 @NgModule({
@@ -20,6 +20,6 @@ import { ThemeModule } from '../@theme/theme.module'
     ThemeModule
   ],
   declarations: [HomeComponent],
-  providers: [QuoteService]
+  providers: [ImageService]
 })
 export class HomeModule {}
