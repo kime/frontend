@@ -1,5 +1,11 @@
 @import "src/theme/theme-variables";
 
+:host {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .logo-containter {
   display: flex;
   align-items: center;
