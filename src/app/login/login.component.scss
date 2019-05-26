@@ -1,7 +1,7 @@
 @import "src/theme/theme-variables";
 @import "~bootstrap/scss/mixins/_breakpoints";
 
-[nbInput] {
+.nbInput {
   &:not(:last-child) {
     margin-bottom: 1rem;
   }

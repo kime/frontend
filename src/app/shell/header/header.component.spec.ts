@@ -3,7 +3,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { AuthenticationService, I18nService, MockAuthenticationService } from '@app/core';
+import { ThemeModule } from '../../@theme/theme.module';
+import { AuthenticationService, MockAuthenticationService } from '@app/core';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -12,9 +13,15 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, NgbModule, TranslateModule.forRoot()],
+      imports: 
+      [
+        ThemeModule,
+        RouterTestingModule, 
+        NgbModule, 
+        TranslateModule.forRoot()
+      ],
       declarations: [HeaderComponent],
-      providers: [{ provide: AuthenticationService, useClass: MockAuthenticationService }, I18nService]
+      providers: [{ provide: AuthenticationService, useClass: MockAuthenticationService }]
     }).compileComponents();
   }));
 

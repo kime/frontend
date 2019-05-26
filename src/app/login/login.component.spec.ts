@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { ThemeModule } from '../@theme/theme.module';
 import { CoreModule } from '@app/core';
 import { LoginComponent } from './login.component';
 
@@ -13,7 +14,14 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NgbModule, RouterTestingModule, TranslateModule.forRoot(), ReactiveFormsModule, CoreModule],
+      imports: [
+        NgbModule,
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+        ReactiveFormsModule,
+        ThemeModule.forRoot(),
+        CoreModule 
+      ],
       declarations: [LoginComponent]
     }).compileComponents();
   }));

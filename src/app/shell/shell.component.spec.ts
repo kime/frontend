@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AuthenticationService, CoreModule, MockAuthenticationService } from '@app/core';
 
+import { ThemeModule } from '../@theme/theme.module';
 import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -14,9 +15,15 @@ describe('ShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, TranslateModule.forRoot(), NgbModule, CoreModule],
+      imports: [
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+        NgbModule,
+        CoreModule,
+        ThemeModule.forRoot()
+      ],
       providers: [{ provide: AuthenticationService, useClass: MockAuthenticationService }],
-      declarations: [HeaderComponent, ShellComponent]
+      declarations: [ HeaderComponent, ShellComponent ]
     }).compileComponents();
   }));
 

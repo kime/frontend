@@ -1,4 +1,5 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { AuthenticationService, Credentials } from './authentication.service';
 
@@ -9,7 +10,8 @@ describe('AuthenticationService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthenticationService]
+      imports: [ HttpClientTestingModule ],
+      providers: [ AuthenticationService ]
     });
   });
 
