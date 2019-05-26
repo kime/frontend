@@ -1,0 +1,42 @@
+@import "src/theme/theme-variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+[nbInput] {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.login-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.login-checkbox {
+  margin-top: 0.2rem;
+  float: right;
+}
+
+.login-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@include media-breakpoint-down(xs) {
+  .container {
+    width: 100%;
+  }
+}
