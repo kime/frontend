@@ -59,7 +59,7 @@
     "htmlhint": "^0.10.0",
     "https-proxy-agent": "^2.0.0",
     "husky": "^0.14.3",
-    "jasmine-core": "~2.99.1",
+    "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "^4.1.0",
     "karma": "~3.0.0",
     "karma-chrome-launcher": "^2.2.0",
