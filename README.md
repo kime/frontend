@@ -1,7 +1,8 @@
 # Kime Frontend
 
 [![Build Status](https://travis-ci.com/kime/frontend.svg?branch=master)](https://travis-ci.com/kime/frontend)
-[![codecov](https://codecov.io/gh/kime/frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/kime/frontend)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![codecov](https://codecov.io/gh/kime/frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/kime/frontend)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
 ## Getting started
@@ -20,7 +21,7 @@
 
 ```
 dist/                        web app production build
-docs/                        project docs and coding guides
+docs/                        project documentation
 e2e/                         end-to-end tests
 src/                         project source code
 |- app/                      app components
@@ -57,18 +58,15 @@ proxy.conf.js                backend proxy configuration
 
 ### Toolchain
 
-Development, build and quality processes are based on [angular-cli](https://github.com/angular/angular-cli) and
-[NPM scripts](https://docs.npmjs.com/misc/scripts), which includes:
+Development, build and quality processes are based on [angular-cli](https://github.com/angular/angular-cli) and [NPM scripts](https://docs.npmjs.com/misc/scripts), which includes:
 
 - Optimized build and bundling process with [Webpack](https://webpack.github.io)
 - [Development server](https://webpack.github.io/docs/webpack-dev-server.html) with backend proxy and live reload
-- Cross-browser CSS with [autoprefixer](https://github.com/postcss/autoprefixer) and
-  [browserslist](https://github.com/ai/browserslist)
+- Cross-browser CSS with [autoprefixer](https://github.com/postcss/autoprefixer) and [browserslist](https://github.com/ai/browserslist)
 - Asset revisioning for [better cache management](https://webpack.github.io/docs/long-term-caching.html)
 - Unit tests using [Jasmine](http://jasmine.github.io) and [Karma](https://karma-runner.github.io)
 - End-to-end tests using [Protractor](https://github.com/angular/protractor)
-- Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer),
-  [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
+- Static code analysis: [TSLint](https://github.com/palantir/tslint), [Codelyzer](https://github.com/mgechev/codelyzer), [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 - Automatic code formatting with [Prettier](https://prettier.io)
 
@@ -88,31 +86,22 @@ Task                            | Description
 `npm run docs`                  | Display project documentation
 `npm run prettier`              | Automatically format all `.ts`, `.js` & `.scss` files
 
-When building the application, you can specify the target configuration using the additional flag
-`--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
+When building the application, you can specify the target configuration using the additional flag `--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
 
 The default build configuration is `prod`.
 
 ### Development server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change
-any of the source files.
-You should not use `ng serve` directly, as it does not use the backend proxy configuration by default.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. You should not use `ng serve` directly, as it does not use the backend proxy configuration by default.
 
 ### Code scaffolding
 
-Run `npm run generate -- component <name>` to generate a new component. You can also use
-`npm run generate -- directive|pipe|service|class|module`.
+Run `npm run generate -- component <name>` to generate a new component. You can also use `npm run generate -- directive|pipe|service|class|module`.
 
-If you have installed [angular-cli](https://github.com/angular/angular-cli) globally with `npm install -g @angular/cli`,
-you can also use the command `ng generate` directly.
+If you have installed [angular-cli](https://github.com/angular/angular-cli) globally with `npm install -g @angular/cli`, you can also use the command `ng generate` directly.
 
 ### Code formatting
 
-All `.ts`, `.js` & `.scss` files in this project are formatted automatically using [Prettier](https://prettier.io),
-and enforced via the `test:ci` script.
-
-A pre-commit git hook has been configured on this project to automatically format staged files, using
-(pretty-quick)[https://github.com/azz/pretty-quick], so you don't have to care for it.
+All `.ts`, `.js` & `.scss` files in this project are formatted automatically using [Prettier](https://prettier.io), and enforced via the `test:ci` script.
 
 You can also force code formatting by running the command `npm run prettier`.
