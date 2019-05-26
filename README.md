@@ -1,7 +1,8 @@
 # Kime Frontend
 
 [![Build Status](https://travis-ci.com/kime/frontend.svg?branch=master)](https://travis-ci.com/kime/frontend)
-[![codecov](https://codecov.io/gh/kime/frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/kime/frontend)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![codecov](https://codecov.io/gh/kime/frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/kime/frontend)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
 ## Getting started
