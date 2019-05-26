@@ -4,6 +4,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { ImageContainerComponent } from './gallery/image-container/image-container.component';
+import { ThemeModule } from '../@theme/theme.module';
 import { ImageService } from './image.service';
 
 describe('HomeComponent', () => {
@@ -12,9 +15,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CoreModule, SharedModule, HttpClientTestingModule],
-      declarations: [HomeComponent],
-      providers: [ImageService]
+      imports: [ CoreModule, SharedModule, HttpClientTestingModule, ThemeModule ],
+      declarations: [ HomeComponent, GalleryComponent, ImageContainerComponent ],
+      providers: [ ImageService ]
     }).compileComponents();
   }));
 

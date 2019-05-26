@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ThemeModule } from '../../../@theme/theme.module';
 import { ImageContainerComponent } from './image-container.component';
 
 describe('ImageContainerComponent', () => {
@@ -8,6 +9,7 @@ describe('ImageContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ ThemeModule ],
       declarations: [ ImageContainerComponent ]
     })
     .compileComponents();

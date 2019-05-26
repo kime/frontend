@@ -4,10 +4,10 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
+import { ThemeModule } from '../@theme/theme.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { ImageService } from './image.service';
-import { ThemeModule } from '../@theme/theme.module';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ImageContainerComponent } from './gallery/image-container/image-container.component'
 
