@@ -6,7 +6,7 @@ import { merge } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService } from '@app/core';
+import { Logger } from '@app/core';
 
 const log = new Logger('App');
 
@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     private translateService: TranslateService,
-    private i18nService: I18nService
   ) {}
 
   ngOnInit() {
@@ -31,9 +30,6 @@ export class AppComponent implements OnInit {
     }
 
     log.debug('init');
-
-    // Setup translations
-    this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 
     const onNavigationEnd = this.router.events.pipe(filter(event => event instanceof NavigationEnd));
 

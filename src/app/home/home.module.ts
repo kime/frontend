@@ -7,7 +7,8 @@ import { SharedModule } from '@app/shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { ImageService } from './image.service';
-import { ThemeModule } from '../@theme/theme.module'
+import { ThemeModule } from '../@theme/theme.module';
+import { GalleryComponent } from './gallery/gallery.component'
 
 @NgModule({
   imports:
@@ -19,7 +20,7 @@ import { ThemeModule } from '../@theme/theme.module'
     HomeRoutingModule,
     ThemeModule
   ],
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, GalleryComponent],
   providers: [ImageService]
 })
 export class HomeModule {}
