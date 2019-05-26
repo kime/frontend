@@ -1,7 +1,4 @@
-# kime
-
-This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
-version 5.3.0
+# Kime Frontend
 
 # Getting started
 
@@ -91,11 +88,6 @@ A pre-commit git hook has been configured on this project to automatically forma
 (pretty-quick)[https://github.com/azz/pretty-quick], so you don't have to care for it.
 
 You can also force code formatting by running the command `npm run prettier`.
-
-# What's in the box
-
-The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
-[Sass](http://sass-lang.com). The translation files use the common [JSON](http://www.json.org) format.
 
 #### Tools
 

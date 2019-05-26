@@ -42,17 +42,18 @@ export class AuthenticationService {
 
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Basic ' + btoa(`${context.username}:${context.password}`)
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa(`${context.username}:${context.password}`)
       })
     };
 
-    return this.http.get<Credentials>(authUrl + '/login', httpOptions)
-      .pipe(map(response => {
+    return this.http.get<Credentials>(authUrl + '/login', httpOptions).pipe(
+      map(response => {
         credentials = response;
         this.setCredentials(credentials, context.remember);
         return credentials;
-      }));
+      })
+    );
   }
 
   /**
