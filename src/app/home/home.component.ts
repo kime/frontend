@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
-import { ImageService } from './image.service';
+import { ImageService } from '../core/image.service';
 
 @Component({
   selector: 'app-home',

@@ -7,21 +7,14 @@ import { SharedModule } from '@app/shared';
 import { ThemeModule } from '../@theme/theme.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { ImageService } from './image.service';
+import { ImageService } from '../core/image.service';
 import { GalleryComponent } from './gallery/gallery.component';
-import { ImageContainerComponent } from './gallery/image-container/image-container.component'
+import { ImageContainerComponent } from './gallery/image-container/image-container.component';
 
 @NgModule({
-  imports:
-  [
-    CommonModule,
-    TranslateModule,
-    CoreModule,
-    SharedModule,
-    HomeRoutingModule,
-    ThemeModule
-  ],
+  imports: [CommonModule, TranslateModule, CoreModule, SharedModule, HomeRoutingModule, ThemeModule],
   declarations: [HomeComponent, GalleryComponent, ImageContainerComponent],
+  entryComponents: [ImageContainerComponent],
   providers: [ImageService]
 })
 export class HomeModule {}
