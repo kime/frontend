@@ -12,10 +12,7 @@ export class HeaderComponent implements OnInit {
   menuHidden = true;
   userMenuItems = [{ title: 'Profile' }, { title: 'Log out' }];
 
-  constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService,
-  ) {}
+  constructor(private router: Router, private authenticationService: AuthenticationService) {}
 
   ngOnInit() {}
 
