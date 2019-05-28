@@ -52,7 +52,7 @@
     "@schematics/angular": "^7.0.0",
     "@types/jasmine": "^2.8.7",
     "@types/jasminewd2": "^2.0.2",
-    "@types/lodash": "^4.14.108",
+    "@types/lodash": "^4.14.132",
     "@types/node": "^8.10.13",
     "codelyzer": "^4.4.4",
     "hads": "^1.7.3",
