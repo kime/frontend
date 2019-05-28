@@ -1,7 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {
   NbActionsModule,
@@ -35,7 +34,7 @@ import {
   NbSelectModule,
   NbChatModule,
   NbTooltipModule,
-  NbCalendarKitModule,
+  NbCalendarKitModule
 } from '@nebular/theme';
 
 import { DEFAULT_THEME } from './styles/theme.default';
@@ -57,7 +56,6 @@ const NB_MODULES = [
   NbCheckboxModule,
   NbPopoverModule,
   NbContextMenuModule,
-  NgbModule,
   NbProgressBarModule,
   NbCalendarModule,
   NbCalendarRangeModule,
@@ -76,15 +74,15 @@ const NB_MODULES = [
   NbSelectModule,
   NbChatModule,
   NbTooltipModule,
-  NbCalendarKitModule,
+  NbCalendarKitModule
 ];
 
 const NB_THEME_PROVIDERS = [
   ...NbThemeModule.forRoot(
     {
-      name: 'cosmic',
+      name: 'cosmic'
     },
-    [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME ],
+    [DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME]
   ).providers,
   ...NbSidebarModule.forRoot().providers,
   ...NbMenuModule.forRoot().providers,
@@ -92,19 +90,18 @@ const NB_THEME_PROVIDERS = [
   ...NbDialogModule.forRoot().providers,
   ...NbWindowModule.forRoot().providers,
   ...NbToastrModule.forRoot().providers,
-  ...NbChatModule.forRoot({
-  }).providers,
+  ...NbChatModule.forRoot({}).providers
 ];
 
 @NgModule({
   imports: [...BASE_MODULES, ...NB_MODULES],
-  exports: [...BASE_MODULES, ...NB_MODULES],
+  exports: [...BASE_MODULES, ...NB_MODULES]
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {
     return <ModuleWithProviders>{
       ngModule: ThemeModule,
-      providers: [...NB_THEME_PROVIDERS],
+      providers: [...NB_THEME_PROVIDERS]
     };
   }
 }
