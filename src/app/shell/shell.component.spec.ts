@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AuthenticationService, CoreModule, MockAuthenticationService } from '@app/core';
 
@@ -15,12 +14,7 @@ describe('ShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        NgbModule,
-        CoreModule,
-        ThemeModule.forRoot()
-      ],
+      imports: [ RouterTestingModule, CoreModule, ThemeModule.forRoot() ],
       providers: [{ provide: AuthenticationService, useClass: MockAuthenticationService }],
       declarations: [ HeaderComponent, FooterComponent, ShellComponent ]
     }).compileComponents();

@@ -1,32 +1,8 @@
 @import "src/theme/theme-variables";
 @import "~bootstrap/scss/mixins/_breakpoints";
 
-:host {
-    display: flex;
-    align-items: center;
-    width: 20%;
-  }
-  
 img {
-    max-width:100%;
-    max-height:100%;
-  }
-
-@include media-breakpoint-down(md) {
-  :host {
-    width: 25%;
-    }
-  }
-
-@include media-breakpoint-down(sm) {
-  :host {
-    width: 33%;
-    }
-  }
-
-@include media-breakpoint-down(xs) {
-  :host {
-      width: 50%;
-    } 
-  }
-  
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}

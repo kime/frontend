@@ -1,17 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ImageContext } from '../../../shared/interfaces';
+
 @Component({
   selector: 'app-image-container',
   templateUrl: './image-container.component.html',
   styleUrls: ['./image-container.component.scss']
 })
 export class ImageContainerComponent implements OnInit {
-  url: string = "https://upload.wikimedia.org/wikipedia/commons/4/48/Panchavati_Ramakrishna.jpg";
+  url: string;
   isLoading: boolean = false;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(context?: ImageContext) {
+    if (context) {
+      this.url = context.originalImage.url;
+    }
+    else {
+      this.url = 'https://angular.io/assets/images/support/angular-404.svg';
+    }
   }
 
+  ngOnInit() {}
 }

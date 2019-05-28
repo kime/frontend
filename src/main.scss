@@ -6,8 +6,15 @@
 // Theme variables, must be included before the libraries to allow overriding defaults
 @import "theme/theme-variables";
 
-// 3rd party libraries
-@import "~bootstrap/scss/bootstrap";
+// Nebular initialization
+@import "~@nebular/bootstrap/styles/globals";
+@import "~@nebular/theme/styles/prebuilt/default";
+$nb-breaking-notice-enable: false;
+@include nb-install() {
+  @include nb-theme-global();
+  @include nb-bootstrap-global();
+}
+
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
