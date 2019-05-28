@@ -67,7 +67,7 @@
     "karma-coverage-istanbul-reporter": "^2.0.2",
     "karma-jasmine": "^1.1.2",
     "karma-junit-reporter": "^1.2.0",
-    "prettier": "^1.14.0",
+    "prettier": "^1.17.1",
     "pretty-quick": "^1.6.0",
     "protractor": "~5.4.0",
     "puppeteer": "^1.4.0",
