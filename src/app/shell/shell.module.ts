@@ -6,7 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
-import { ThemeModule } from '../@theme/theme.module'
+import { ThemeModule } from '../@theme/theme.module';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { ThemeModule } from '../@theme/theme.module'
     RouterModule,
     ThemeModule
   ],
-  declarations: [HeaderComponent, ShellComponent]
+  declarations: [HeaderComponent, ShellComponent, FooterComponent]
 })
 export class ShellModule {}
