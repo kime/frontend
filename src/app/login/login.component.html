@@ -9,8 +9,8 @@
             <nb-alert status="warning" [hidden]="!error || isLoading">Incorrect username or password!</nb-alert>
             <input type="text" nbInput fullWidth fieldSize="medium" formControlName="username" placeholder="Username">
             <input type="password" nbInput fullWidth fieldSize="medium" formControlName="password" placeholder="Password">
-            <button nbButton [size]="'small'" type="submit" [disabled]="loginForm.invalid || isLoading">Login</button>
             <nb-checkbox class="login-checkbox" formControlName="remember">Keep me logged in</nb-checkbox>
+            <button nbButton class="login-button" [size]="'small'" type="submit" [disabled]="loginForm.invalid || isLoading">Login</button>
           </form>
       </nb-card-body>
 
@@ -20,42 +20,3 @@
     </nb-card>
   </nb-layout-column>
 </nb-layout>
-
-<!-- <div class="login-container bg-light">
-  <div class="login-box">
-    <div class="container">
-      <div class="card col-md-6 mt-3 mx-auto">
-        <div class="card-body">
-          <h4 class="card-title text-center">
-            <i class="far fa-3x fa-user-circle text-muted"></i>
-          </h4>
-          <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-            <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
-              Username or password incorrect.
-            </div>
-            <div class="form-group">
-              <label class="d-block">
-                <input type="text" class="form-control" formControlName="username" autocomplete="username"
-                       [placeholder]="'Username' | translate"/>
-              </label>
-              <label class="d-block">
-                <input type="password" class="form-control" formControlName="password" autocomplete="current-password"
-                       [placeholder]="'Password' | translate" required/>
-              </label>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" formControlName="remember"/>
-                  <span translate>Remember me</span>
-                </label>
-              </div>
-            </div>
-            <button class="btn btn-primary w-100" type="submit" [disabled]="loginForm.invalid || isLoading">
-              <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
-              <span translate>Login</span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

@@ -1,7 +1,9 @@
 import { Component, Injector, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 
 import { ImageContainerComponent } from './image-container/image-container.component';
 import { ImageContext } from '../../shared/interfaces';
+import { ImageService } from '../../core/image.service';
 
 @Component({
   selector: 'app-gallery',
@@ -11,48 +13,27 @@ import { ImageContext } from '../../shared/interfaces';
 export class GalleryComponent implements OnInit {
   ImageContainerComponent = ImageContainerComponent;
 
-  userImageContexts: ImageContext[] = [
-    {
-      id: 0,
-      name: 'kamarpukur.jpg',
-      uploaded: 'null',
-      originalImage: {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Kamarpukur_Ramakrishna_Hut.jpg',
-        width: 0,
-        height: 0
-      },
-      enhancedImage: {
-        url: 'null',
-        width: 0,
-        height: 0,
-        multiplier: 4,
-        fixArtifacts: true
-      }
-    },
-    {
-      id: 1,
-      name: 'panchavati.jpg',
-      uploaded: 'null',
-      originalImage: {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Panchavati_Ramakrishna.jpg',
-        width: 0,
-        height: 0
-      },
-      enhancedImage: {
-        url: 'null',
-        width: 0,
-        height: 0,
-        multiplier: 4,
-        fixArtifacts: false
-      }
-    }
-  ];
+  isLoading: boolean;
+  userImageContexts: ImageContext[];
 
-  constructor(private imageContainerInjector: Injector) {}
+  constructor(private imageContainerInjector: Injector, private imageService: ImageService) {}
 
   createInjector(context: ImageContext): Injector {
     return Injector.create([{ provide: ImageContext, useValue: context }], this.imageContainerInjector);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isLoading = true;
+    this.imageService
+      .getUserImages()
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
+      .subscribe((userImageContexts: ImageContext[]) => {
+        console.log(userImageContexts);
+        this.userImageContexts = userImageContexts;
+      });
+  }
 }

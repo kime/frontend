@@ -18,8 +18,7 @@ const credentialsKey = 'credentials';
 const authUrl = 'http://localhost:3780/auth';
 
 /**
- * Provides a base for authentication workflow.
- * The Credentials interface as well as login/logout methods should be replaced with proper implementation.
+ * Provides a service for the authentication workflow.
  */
 @Injectable()
 export class AuthenticationService {

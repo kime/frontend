@@ -1,27 +1,43 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+
+import { AuthenticationService, Credentials } from '@app/core';
+import { ImageContext } from '../shared/interfaces';
 
 const routes = {
-  quote: (c: RandomQuoteContext) => `/jokes/random?category=${c.category}`
+  images: () => `v1/images`
 };
 
-export interface RandomQuoteContext {
+export interface UserContext {
   category: string;
 }
 
 @Injectable()
 export class ImageService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private authenticationService: AuthenticationService
+  ) {}
 
-  getRandomQuote(context: RandomQuoteContext): Observable<string> {
+  getUserImages(): Observable<ImageContext[]> {
+    const credentials: Credentials = this.authenticationService.credentials;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa(`${credentials.token}:${''}`)
+      })
+    };
+
     return this.httpClient
       .cache()
-      .get(routes.quote(context))
+      .get<ImageContext[]>(routes.images(), httpOptions)
       .pipe(
-        map((body: any) => body.value),
-        catchError(() => of('Error, could not load joke :-('))
+        catchError(() => {
+          console.log('Error: Cannot fetch user images from the API');
+          return of([]);
+        })
       );
   }
 }
