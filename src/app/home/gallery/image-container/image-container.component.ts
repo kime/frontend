@@ -9,13 +9,12 @@ import { ImageContext } from '../../../shared/interfaces';
 })
 export class ImageContainerComponent implements OnInit {
   url: string;
-  isLoading: boolean = false;
+  isLoading = false;
 
   constructor(context?: ImageContext) {
     if (context) {
       this.url = context.originalImage.url;
-    }
-    else {
+    } else {
       this.url = 'https://angular.io/assets/images/support/angular-404.svg';
     }
   }
