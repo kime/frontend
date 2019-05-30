@@ -1,9 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
-import { ThemeModule } from '../../@theme/theme.module';
+import { ThemeModule } from '@app/@theme/theme.module';
 import { GalleryComponent } from './gallery.component';
 import { ImageContainerComponent } from './image-container/image-container.component';
+import { AuthenticationService, HttpCacheService, ImageService, MockAuthenticationService } from '@app/core';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;
@@ -11,12 +13,15 @@ describe('GalleryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ThemeModule],
-      declarations: [GalleryComponent, ImageContainerComponent]
+      imports: [ ThemeModule, HttpClientTestingModule ],
+      declarations: [ GalleryComponent, ImageContainerComponent ],
+      providers: [ ImageService, HttpTestingController, HttpCacheService,
+        { provide: AuthenticationService, useClass: MockAuthenticationService }
+      ]
     })
       .overrideModule(BrowserDynamicTestingModule, {
         set: {
-          entryComponents: [ImageContainerComponent]
+          entryComponents: [ ImageContainerComponent ]
         }
       })
       .compileComponents();

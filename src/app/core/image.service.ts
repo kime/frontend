@@ -3,16 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AuthenticationService, Credentials } from '@app/core';
+import { AuthenticationService, Credentials } from '@app/core/authentication/authentication.service';
 import { ImageContext } from '../shared/interfaces';
 
 const routes = {
   images: () => `v1/images`
 };
-
-export interface UserContext {
-  category: string;
-}
 
 @Injectable()
 export class ImageService {
@@ -31,7 +27,6 @@ export class ImageService {
     };
 
     return this.httpClient
-      .cache()
       .get<ImageContext[]>(routes.images(), httpOptions)
       .pipe(
         catchError(() => {
