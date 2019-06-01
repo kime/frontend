@@ -9,10 +9,12 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ImageContainerComponent } from './gallery/image-container/image-container.component';
+import { UploadContainerComponent } from './gallery/upload-container/upload-container.component';
+import { ImageUploadModule } from 'angular2-image-upload';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, CoreModule, SharedModule, HomeRoutingModule, ThemeModule],
-  declarations: [HomeComponent, GalleryComponent, ImageContainerComponent],
+  imports: [CommonModule, TranslateModule, CoreModule, SharedModule, HomeRoutingModule, ThemeModule, ImageUploadModule],
+  declarations: [HomeComponent, GalleryComponent, ImageContainerComponent, UploadContainerComponent],
   entryComponents: [ImageContainerComponent],
 })
 export class HomeModule {}

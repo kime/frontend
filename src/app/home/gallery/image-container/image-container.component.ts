@@ -1,6 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { ImageContext } from '../../../shared/interfaces';
+import { ImageContext } from '@app/shared/interfaces';
+
+const errorImageContext: ImageContext = {
+  id: 0,
+  name: 'warning-icon.png',
+  uploaded: 'error',
+  originalImage: {
+    url: 'assets/images/warning-icon.png',
+    width: 640,
+    height: 640,
+  }
+};
 
 @Component({
   selector: 'app-image-container',
@@ -8,16 +19,18 @@ import { ImageContext } from '../../../shared/interfaces';
   styleUrls: ['./image-container.component.scss']
 })
 export class ImageContainerComponent implements OnInit {
-  url: string;
   isLoading = false;
+  @Input() context: ImageContext = errorImageContext;
 
-  constructor(context?: ImageContext) {
-    if (context) {
-      this.url = context.originalImage.url;
-    } else {
-      this.url = 'https://angular.io/assets/images/support/angular-404.svg';
-    }
-  }
+  constructor() {}
 
   ngOnInit() {}
+
+  getAccentColor(): string {
+    if (this.context.uploaded === 'error') {
+      return 'warning';
+    } else {
+      return 'disabled';
+    }
+  }
 }

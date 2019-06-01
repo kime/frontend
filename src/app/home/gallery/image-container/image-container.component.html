@@ -1,5 +1,5 @@
-<nb-card [nbSpinner]="isLoading" [size]="'xsmall'" nbSpinnerSize="medium">
+<nb-card [nbSpinner]="isLoading" [size]="'xsmall'" [accent]="getAccentColor()" nbSpinnerSize="medium">
   <nb-card-body>
-      <img [src]="url">
+      <img [src]="context.originalImage.url">
   </nb-card-body>
 </nb-card>

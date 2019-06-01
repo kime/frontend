@@ -2,8 +2,8 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
 import { ImageContainerComponent } from './image-container/image-container.component';
-import { ImageContext } from '../../shared/interfaces';
-import { ImageService } from '../../core/image.service';
+import { ImageContext } from '@app/shared/interfaces';
+import { ImageService } from '@app/core';
 
 @Component({
   selector: 'app-gallery',
@@ -12,7 +12,6 @@ import { ImageService } from '../../core/image.service';
 })
 export class GalleryComponent implements OnInit {
   ImageContainerComponent = ImageContainerComponent;
-
   isLoading: boolean;
   userImageContexts: ImageContext[];
 
@@ -32,7 +31,6 @@ export class GalleryComponent implements OnInit {
         })
       )
       .subscribe((userImageContexts: ImageContext[]) => {
-        console.log(userImageContexts);
         this.userImageContexts = userImageContexts;
       });
   }

@@ -1,3 +1,4 @@
-  <div class="gallery-container" *ngFor="let imageContext of userImageContexts">
-      <ng-container class="image-container" *ngComponentOutlet="ImageContainerComponent; injector:createInjector(imageContext)"></ng-container>
-  </div>
+<app-upload-container class="gallery-container"></app-upload-container>
+<div class="gallery-container" *ngFor="let imageContext of userImageContexts">
+  <app-image-container [context]=imageContext></app-image-container>
+</div>
