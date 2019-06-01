@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/kime/frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/kime/frontend)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Kime is a webapp for upscaling and enhancing images using deep learning. This repository contains the code for the frontend, written using Angular and TypeScript. 
+Kime is a webapp for upscaling and enhancing images using generative adversarial networks. This repository contains the code for the frontend, written using Angular and TypeScript. 
 
 ## Getting started
 
