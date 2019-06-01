@@ -14,5 +14,5 @@ export class ImageContext {
   name: string;
   uploaded: string;
   originalImage: Image;
-  enhancedImage: EnhancedImage;
+  enhancedImage?: EnhancedImage;
 }

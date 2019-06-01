@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ThemeModule } from '@app/@theme/theme.module';
+import { ImageUploadModule } from 'angular2-image-upload';
+import { MockModule } from 'ng-mocks';
 import { UploadContainerComponent } from './upload-container.component';
 
 describe('UploadContainerComponent', () => {
@@ -8,6 +11,7 @@ describe('UploadContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ ThemeModule, MockModule(ImageUploadModule) ],
       declarations: [ UploadContainerComponent ]
     })
     .compileComponents();
