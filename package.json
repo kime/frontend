@@ -48,7 +48,7 @@
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "^7.0.0",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
-    "@ngx-rocket/scripts": "^3.0.0",
+    "@ngx-rocket/scripts": "^3.0.3",
     "@schematics/angular": "^7.0.0",
     "@types/jasmine": "^2.8.7",
     "@types/jasminewd2": "^2.0.2",
