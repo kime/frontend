@@ -34,4 +34,8 @@ export class GalleryComponent implements OnInit {
         this.userImageContexts = userImageContexts;
       });
   }
+
+  onUploadCompletion(responseContext: ImageContext) {
+    this.userImageContexts.push(responseContext);
+  }
 }

@@ -1,11 +1,13 @@
-<nb-card [size]="'xsmall'">
+<nb-card [size]="'xsmall'" [nbSpinner]="isLoading" nbSpinnerSize="medium">
   <nb-card-body>
-    <image-upload
-      [url]="'my-url.com'"
-      [headers]="{Authorization: 'MyToken'}"
-      [buttonCaption]="'Upload Image'"
+    <image-upload #uploadBox
+      [max]="2"
+      [preview]="false"
       [class]="'upload-box'"
-      [dropBoxMessage]="'Try dragging an image here'">
+      [maxFileSize]="1048576"
+      [buttonCaption]="'Upload'"
+      [dropBoxMessage]="'Try dragging an image here'"
+      (uploadFinished)="onUploadFinished($event)">
     </image-upload>
   </nb-card-body>
 </nb-card>

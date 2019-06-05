@@ -29,3 +29,8 @@ img {
   display: block !important;
   text-align: center;
 }
+
+
+/deep/ .upload-box .img-ul-clear {
+  display: none !important;
+}
