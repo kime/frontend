@@ -1,10 +1,10 @@
-import { TestBed, inject, async } from '@angular/core/testing';
+import { async, inject, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { AuthenticationService, CoreModule, HttpCacheService, MockAuthenticationService } from '@app/core';
 import { ImageService } from './image.service';
 import { ImageContext } from '@app/shared/interfaces';
-import { of } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ImageService', () => {
   let imageService: ImageService;
@@ -12,10 +12,13 @@ describe('ImageService', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ CoreModule, HttpClientTestingModule ],
-      providers: [ ImageService, HttpCacheService, HttpTestingController,
+      imports: [ CoreModule, HttpClientTestingModule, RouterTestingModule],
+      providers: [
+        ImageService,
+        HttpCacheService,
+        HttpTestingController,
         { provide: AuthenticationService, useClass: MockAuthenticationService }
-        ]
+      ]
     });
   }));
 
