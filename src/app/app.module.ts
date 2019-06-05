@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NbThemeModule } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
+import { ImageUploadModule } from 'angular2-image-upload';
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
@@ -19,15 +20,16 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    TranslateModule.forRoot(),
     NbThemeModule.forRoot(),
+    TranslateModule.forRoot(),
+    ImageUploadModule.forRoot(),
     CoreModule,
     SharedModule,
     ShellModule,
     HomeModule,
     AboutModule,
     LoginModule,
-    AppRoutingModule // must be imported as the last module as it contains the fallback route
+    AppRoutingModule // Must be imported finally as it contains the fallback route
   ],
   declarations: [AppComponent],
   providers: [],

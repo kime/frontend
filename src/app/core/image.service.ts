@@ -1,36 +1,88 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { AuthenticationService, Credentials } from '@app/core/authentication/authentication.service';
-import { ImageContext } from '../shared/interfaces';
+import { EnhanceRequestContext, ImageContext } from '../shared/interfaces';
+import { Router } from '@angular/router';
 
 const routes = {
-  images: () => `v1/images`
+  images: () => `v1/images`,
+  upload: () => `v1/images/upload`,
+  enhance: () => `v1/images/enhance`
 };
 
 @Injectable()
 export class ImageService {
   constructor(
+    private router: Router,
     private httpClient: HttpClient,
     private authenticationService: AuthenticationService
   ) {}
 
-  getUserImages(): Observable<ImageContext[]> {
-    const credentials: Credentials = this.authenticationService.credentials;
+  getAuthHeader(): string {
+    return 'Basic ' + btoa(`${this.authenticationService.credentials.token}:${''}`);
+  }
+
+  uploadImage(imageFile: File): Observable<ImageContext> {
+    const httpOptions = {
+      params: new HttpParams().set('name', imageFile.name),
+      headers: new HttpHeaders({
+          // 'Content-Type': 'multipart/form-data',
+          Authorization: this.getAuthHeader()
+        })
+      };
+
+    const formData = new FormData();
+    formData.append('image', imageFile);
+
+    return this.httpClient
+      .post<ImageContext>(routes.upload(), formData, httpOptions)
+      .pipe(
+        catchError(() => {
+          console.log('Error: Cannot upload image to the API');
+          return of(new ImageContext());
+        })
+      );
+  }
+
+  enhanceImage(requestContext: EnhanceRequestContext): Observable<ImageContext> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'Basic ' + btoa(`${credentials.token}:${''}`)
+        Authorization: this.getAuthHeader()
+      })
+    };
+
+    return this.httpClient
+      .post<ImageContext>(routes.enhance(), requestContext, httpOptions)
+      .pipe(
+        catchError(() => {
+          console.log('Error: Cannot upload image to the API');
+          return of(new ImageContext());
+        })
+      );
+  }
+
+  getUserImages(): Observable<ImageContext[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.getAuthHeader()
       })
     };
 
     return this.httpClient
       .get<ImageContext[]>(routes.images(), httpOptions)
       .pipe(
-        catchError(() => {
-          console.log('Error: Cannot fetch user images from the API');
+        catchError((error) => {
+          console.log('Error ${error.status}: Cannot fetch user images from the API');
+          if (error.status === 401) {
+            console.log('Logging out and redirecting user to login page');
+            this.authenticationService.logout().subscribe(() =>
+              this.router.navigate(['/login'], { replaceUrl: true }));
+          }
           return of([]);
         })
       );

@@ -1,0 +1,13 @@
+<nb-card [size]="'xsmall'" [nbSpinner]="isLoading" nbSpinnerSize="medium">
+  <nb-card-body>
+    <image-upload #uploadBox
+      [max]="2"
+      [preview]="false"
+      [class]="'upload-box'"
+      [maxFileSize]="1048576"
+      [buttonCaption]="'Upload'"
+      [dropBoxMessage]="'Try dragging an image here'"
+      (uploadFinished)="onUploadFinished($event)">
+    </image-upload>
+  </nb-card-body>
+</nb-card>

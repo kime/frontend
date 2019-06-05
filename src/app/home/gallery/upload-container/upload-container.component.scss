@@ -1,0 +1,36 @@
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+nb-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/deep/ .upload-box {
+  --active-color: #3C9;
+  --common-radius: 3px;
+
+  background-color: #f8f8f8;
+  border-radius: var(--common-radius);
+  border: #d0d0d0 dashed 1px;
+  position: relative;
+  color: #9b9b9b;
+}
+
+/deep/ .upload-box .img-ul-button {
+  // Override .img-ul-button alignment
+  float: none !important;
+  display: block !important;
+  text-align: center;
+}
+
+
+/deep/ .upload-box .img-ul-clear {
+  display: none !important;
+}
