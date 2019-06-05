@@ -33,7 +33,7 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "@nebular/bootstrap": "^3.5.0",
     "@nebular/theme": "^3.5.0",
-    "@ngx-translate/core": "^10.0.1",
+    "@ngx-translate/core": "^11.0.1",
     "angular2-image-upload": "^1.0.0-rc.2",
     "bootstrap": "^4.3.1",
     "codecov": "^3.5.0",
