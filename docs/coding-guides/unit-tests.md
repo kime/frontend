@@ -11,7 +11,7 @@ Everything! But if you need priorities, at least all business logic code must be
 Shared directives/components should also be covered by unit tests, if you do not have the time to test every single
 component.
 
-Keep in mind that component unit tests should not overlap with [end-to-end tests](e2e-tests.md): while unit the tests
+Keep in mind that component unit tests should not overlap with end-to-end tests: while unit the tests
 cover the isolated behavior of the component bindings and methods, the end-to-end tests in opposition should cover the
 integration and interactions with other app components based on real use cases scenarios.
 
