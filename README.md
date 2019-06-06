@@ -23,7 +23,6 @@ Kime is a web app for upscaling and enhancing images using generative adversaria
 ```
 dist/                        web app production build
 docs/                        project documentation
-e2e/                         end-to-end tests
 src/                         project source code
 |- app/                      app components
 |  |- core/                  core module (singleton services and single-use components)
@@ -78,12 +77,10 @@ Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts). 
 Task                            | Description
 --------------------------------|--------------------------------------------------------------------------------------
 `npm start`                     | Run development server on `http://localhost:4200/`
-`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist/` folder
+`npm run build`                 | Lint code and build web app
 `npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
 `npm run test:ci`               | Lint code and run unit tests once for continuous integration
-`npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
 `npm run lint`                  | Lint code
-`npm run translations:extract`  | Extract strings from code and templates to `src/app/translations/template.json`
 `npm run docs`                  | Display project documentation
 `npm run prettier`              | Automatically format all `.ts`, `.js` & `.scss` files
 
