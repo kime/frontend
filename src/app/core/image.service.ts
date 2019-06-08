@@ -3,14 +3,14 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AuthenticationService, Credentials } from '@app/core/authentication/authentication.service';
-import { EnhanceRequestContext, ImageContext } from '../shared/interfaces';
+import { AuthenticationService} from '@app/core/authentication/authentication.service';
+import { Credentials, EnhanceRequestContext, ImageContext } from '../shared/interfaces';
 import { Router } from '@angular/router';
 
 const routes = {
-  images: () => `v1/images`,
-  upload: () => `v1/images/upload`,
-  enhance: () => `v1/images/enhance`
+  images: () => `api/v1/images`,
+  upload: () => `api/v1/images/upload`,
+  enhance: () => `api/v1/images/enhance`
 };
 
 @Injectable()

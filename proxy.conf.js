@@ -13,6 +13,13 @@ const proxyConfig = [
     target: 'http://0.0.0.0:3780/api',
     changeOrigin: true,
     secure: false
+  },
+  {
+    context: '/auth',
+    pathRewrite: { '^/auth': '' },
+    target: 'http://0.0.0.0:3780/auth',
+    changeOrigin: true,
+    secure: false
   }
 ];
 
