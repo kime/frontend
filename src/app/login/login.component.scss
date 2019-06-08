@@ -24,15 +24,18 @@
   min-height: 100%;
 }
 
-.login-checkbox {
-  padding: 0;
-  float: right;
-}
-
 .login-footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.half-width {
+  width: 49%;
+}
+
+.right {
+  float: right;
 }
 
 @include media-breakpoint-down(xs) {

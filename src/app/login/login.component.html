@@ -2,21 +2,68 @@
   <nb-layout-header fixed>Kime</nb-layout-header>
 
   <nb-layout-column class="login-box">
-    <nb-card [nbSpinner]="isLoading" nbSpinnerSize="xlarge">
-      <nb-card-header>Get started!</nb-card-header>
-      <nb-card-body>
-          <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-            <nb-alert status="warning" [hidden]="!error || isLoading">Incorrect username or password!</nb-alert>
-            <input type="text" nbInput fullWidth fieldSize="medium" formControlName="username" placeholder="Username">
-            <input type="password" nbInput fullWidth fieldSize="medium" formControlName="password" placeholder="Password">
-            <nb-checkbox class="login-checkbox" formControlName="remember">Keep me logged in</nb-checkbox>
-            <button nbButton class="login-button" [size]="'small'" type="submit" [disabled]="loginForm.invalid || isLoading">Login</button>
-          </form>
-      </nb-card-body>
+    <nb-reveal-card>
 
-      <nb-card-footer class="login-footer">
-        <a routerLink="/signup" routerLinkActive="active">Don't have an account?</a>
-      </nb-card-footer>
-    </nb-card>
+      <nb-card-front>
+        <nb-card [status]="getLoginStatus()" [nbSpinner]="isLoading" nbSpinnerSize="xlarge">
+          <nb-card-header>{{ getLoginHeader() }}</nb-card-header>
+
+          <nb-card-body>
+            <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+              <input type="text" nbInput fullWidth
+                     fieldSize="medium"
+                     formControlName="username"
+                     placeholder="Username">
+              <input type="password" nbInput fullWidth
+                     fieldSize="medium"
+                     formControlName="password"
+                     placeholder="Password">
+              <button type="submit" nbButton fullWidth class="login-button" [size]="'medium'"
+                      [disabled]="loginForm.invalid || isLoading">Login
+              </button>
+            </form>
+          </nb-card-body>
+
+          <nb-card-footer class="login-footer">
+            Don't have an account?
+          </nb-card-footer>
+
+        </nb-card>
+      </nb-card-front>
+
+      <nb-card-back>
+        <nb-card [status]="getSignupStatus()" [nbSpinner]="isLoading" nbSpinnerSize="xlarge">
+          <nb-card-header>{{ getSignupHeader() }}</nb-card-header>
+
+          <nb-card-body>
+            <form (ngSubmit)="signup()" [formGroup]="signupForm" novalidate>
+              <input type="text" nbInput fullWidth
+                     fieldSize="medium"
+                     formControlName="username"
+                     placeholder="Username">
+              <input type="password" nbInput
+                     class="half-width"
+                     fieldSize="medium"
+                     formControlName="password"
+                     placeholder="Password">
+              <input type="password" nbInput
+                     class="half-width right"
+                     fieldSize="medium"
+                     formControlName="confirmPassword"
+                     placeholder="Confirm Password">
+              <button type="submit" nbButton fullWidth class="login-button" [size]="'medium'"
+                      [disabled]="signupForm.invalid || isLoading">Signup
+              </button>
+            </form>
+          </nb-card-body>
+
+          <nb-card-footer class="login-footer">
+            Have an existing account?
+          </nb-card-footer>
+
+        </nb-card>
+      </nb-card-back>
+
+    </nb-reveal-card>
   </nb-layout-column>
 </nb-layout>
