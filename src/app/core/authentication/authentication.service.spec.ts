@@ -1,7 +1,8 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { AuthenticationService, Credentials } from './authentication.service';
+import { AuthenticationService} from './authentication.service';
+import { Credentials } from '@app/shared/interfaces';
 
 const credentialsKey = 'credentials';
 

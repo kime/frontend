@@ -34,3 +34,14 @@ export class EnhanceRequestContext {
     this.fixArtifacts = fixArtifacts;
   }
 }
+
+export interface Credentials {
+  username: string;
+  token: string;
+}
+
+export interface LoginContext {
+  username: string;
+  password: string;
+  remember?: boolean;
+}
