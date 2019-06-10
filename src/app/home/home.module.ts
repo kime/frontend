@@ -10,10 +10,10 @@ import { HomeComponent } from './home.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ImageContainerComponent } from './gallery/image-container/image-container.component';
 import { UploadContainerComponent } from './gallery/upload-container/upload-container.component';
-import { ImageUploadModule } from 'angular2-image-upload';
+import { NbIconModule } from '@nebular/theme';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, CoreModule, SharedModule, HomeRoutingModule, ThemeModule, ImageUploadModule],
+  imports: [CommonModule, TranslateModule, CoreModule, SharedModule, HomeRoutingModule, ThemeModule, NbIconModule],
   declarations: [HomeComponent, GalleryComponent, ImageContainerComponent, UploadContainerComponent],
   entryComponents: [ImageContainerComponent]
 })

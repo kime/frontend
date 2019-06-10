@@ -33,7 +33,7 @@ describe('LoaderComponent', () => {
     const div = element.querySelectorAll('div')[0];
 
     // Act
-    fixture.componentInstance.isLoading = true;
+    fixture.componentInstance.isProcessing = true;
     fixture.detectChanges();
 
     // Assert

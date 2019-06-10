@@ -1,13 +1,19 @@
-<nb-card [size]="'small'" [nbSpinner]="isLoading" nbSpinnerSize="medium">
+<nb-card [size]="'small'"
+         [nbSpinner]="isProcessing"
+         nbSpinnerSize="giant"
+         nbSpinnerStatus="primary">
+
   <nb-card-body>
-    <image-upload #uploadBox
-      [max]="2"
-      [preview]="false"
-      [class]="'upload-box'"
-      [maxFileSize]="1048576"
-      [buttonCaption]="'Upload'"
-      [dropBoxMessage]="'Try dragging an image here'"
-      (uploadFinished)="onUploadFinished($event)">
-    </image-upload>
+    <nb-actions fullWidth size="giant">
+      <input #imageFile
+             type="file"
+             accept="image/*"
+             (change)="processFile(imageFile.files)">
+      <nb-action icon="cloud-upload-outline"
+                 [hidden]="isProcessing"
+                 (click)="imageFile.click()">
+      </nb-action>
+    </nb-actions>
   </nb-card-body>
+
 </nb-card>
