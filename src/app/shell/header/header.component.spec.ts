@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ThemeModule } from '../../@theme/theme.module';
 import { AuthenticationService, MockAuthenticationService } from '@app/core';
 import { HeaderComponent } from './header.component';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -11,7 +12,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ ThemeModule, RouterTestingModule ],
+      imports: [ThemeModule, RouterTestingModule, NbEvaIconsModule],
       declarations: [HeaderComponent],
       providers: [{ provide: AuthenticationService, useClass: MockAuthenticationService }]
     }).compileComponents();

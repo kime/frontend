@@ -15,6 +15,6 @@ import { ImageUploadModule } from 'angular2-image-upload';
 @NgModule({
   imports: [CommonModule, TranslateModule, CoreModule, SharedModule, HomeRoutingModule, ThemeModule, ImageUploadModule],
   declarations: [HomeComponent, GalleryComponent, ImageContainerComponent, UploadContainerComponent],
-  entryComponents: [ImageContainerComponent],
+  entryComponents: [ImageContainerComponent]
 })
 export class HomeModule {}

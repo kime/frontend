@@ -6,14 +6,16 @@ nb-card-body {
   justify-content: center;
 }
 
-img {
+
+image-upload {
+  display: block;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  max-height: 100%;
-  object-fit: cover;
 }
 
-/deep/ .upload-box {
-  --active-color: #3C9;
+::ng-deep .upload-box {
+  --active-color: #3c9;
   --common-radius: 3px;
 
   background-color: #f8f8f8;
@@ -23,14 +25,22 @@ img {
   color: #9b9b9b;
 }
 
-/deep/ .upload-box .img-ul-button {
+::ng-deep .upload-box .img-ul-button {
   // Override .img-ul-button alignment
   float: none !important;
   display: block !important;
   text-align: center;
 }
 
-
-/deep/ .upload-box .img-ul-clear {
+::ng-deep .upload-box .img-ul-clear {
+  // Hide .img-ul-clear element
   display: none !important;
+}
+
+::ng-deep .upload-box .img-ul-drag-box-msg {
+  // Override .img-ul-drag-box-msg alignment
+  display: block !important;
+  text-align: center !important;
+  margin-left: 0 !important;
+  padding-bottom: 4px !important;
 }

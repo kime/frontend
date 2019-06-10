@@ -17,21 +17,18 @@ describe('GalleryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:
-        [
-          ThemeModule,
-          HttpClientTestingModule,
-          RouterTestingModule,
-          MockModule(ImageUploadModule)
-        ],
-      declarations: [ GalleryComponent, ImageContainerComponent, UploadContainerComponent ],
-      providers: [ ImageService, HttpTestingController, HttpCacheService,
+      imports: [ThemeModule, HttpClientTestingModule, RouterTestingModule, MockModule(ImageUploadModule)],
+      declarations: [GalleryComponent, ImageContainerComponent, UploadContainerComponent],
+      providers: [
+        ImageService,
+        HttpTestingController,
+        HttpCacheService,
         { provide: AuthenticationService, useClass: MockAuthenticationService }
       ]
     })
       .overrideModule(BrowserDynamicTestingModule, {
         set: {
-          entryComponents: [ ImageContainerComponent ]
+          entryComponents: [ImageContainerComponent]
         }
       })
       .compileComponents();

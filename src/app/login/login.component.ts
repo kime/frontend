@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   private static checkPasswords(control: AbstractControl) {
     if (control.get('password').value !== control.get('confirmPassword').value) {
-      return {invalid: true};
+      return { invalid: true };
     }
   }
 
@@ -36,8 +36,7 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login() {
     this.isLoading = true;
@@ -74,8 +73,8 @@ export class LoginComponent implements OnInit {
         })
       )
       .pipe(
-        flatMap( () => {
-         return this.authenticationService.login(this.signupForm.value);
+        flatMap(() => {
+          return this.authenticationService.login(this.signupForm.value);
         })
       )
       .subscribe(
@@ -127,13 +126,16 @@ export class LoginComponent implements OnInit {
   private createForm() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', Validators.required]
     });
 
-    this.signupForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
-    }, {validator: LoginComponent.checkPasswords});
+    this.signupForm = this.formBuilder.group(
+      {
+        username: ['', Validators.required],
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required]
+      },
+      { validator: LoginComponent.checkPasswords }
+    );
   }
 }

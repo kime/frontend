@@ -7,6 +7,7 @@ import { ThemeModule } from '../@theme/theme.module';
 import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -14,9 +15,9 @@ describe('ShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, CoreModule, ThemeModule.forRoot() ],
+      imports: [RouterTestingModule, CoreModule, NbEvaIconsModule, ThemeModule.forRoot()],
       providers: [{ provide: AuthenticationService, useClass: MockAuthenticationService }],
-      declarations: [ HeaderComponent, FooterComponent, ShellComponent ]
+      declarations: [HeaderComponent, FooterComponent, ShellComponent]
     }).compileComponents();
   }));
 

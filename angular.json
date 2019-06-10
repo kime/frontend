@@ -30,7 +30,6 @@
             ],
             "styles": [
               "node_modules/@nebular/theme/styles/prebuilt/default.css",
-              "node_modules/nebular-icons/scss/nebular-icons.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/main.scss"
             ],
@@ -84,7 +83,6 @@
             "scripts": [],
             "styles": [
               "node_modules/@nebular/theme/styles/prebuilt/default.css",
-              "node_modules/nebular-icons/scss/nebular-icons.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/main.scss"
             ],

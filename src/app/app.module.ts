@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NbThemeModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { TranslateModule } from '@ngx-translate/core';
 import { ImageUploadModule } from 'angular2-image-upload';
 
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NbEvaIconsModule,
     NbThemeModule.forRoot(),
     TranslateModule.forRoot(),
     ImageUploadModule.forRoot(),

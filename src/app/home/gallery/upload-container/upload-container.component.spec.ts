@@ -14,19 +14,10 @@ describe('UploadContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        ThemeModule,
-        HttpClientTestingModule,
-        RouterTestingModule,
-        MockModule(ImageUploadModule)
-      ],
-      declarations: [ UploadContainerComponent ],
-      providers: [
-        ImageService,
-        { provide: AuthenticationService, useClass: MockAuthenticationService }
-      ]
-    })
-    .compileComponents();
+      imports: [ThemeModule, HttpClientTestingModule, RouterTestingModule, MockModule(ImageUploadModule)],
+      declarations: [UploadContainerComponent],
+      providers: [ImageService, { provide: AuthenticationService, useClass: MockAuthenticationService }]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

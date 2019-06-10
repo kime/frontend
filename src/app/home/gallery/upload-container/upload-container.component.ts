@@ -11,7 +11,7 @@ import { EnhanceRequestContext, ImageContext } from '@app/shared/interfaces';
   styleUrls: ['./upload-container.component.scss']
 })
 export class UploadContainerComponent implements OnInit {
-  @ViewChild('uploadBox') uploadBox: ImageUploadComponent;
+  @ViewChild('uploadBox', { static: true }) uploadBox: ImageUploadComponent;
   @Output() isComplete = new EventEmitter<ImageContext>();
   multiplier = 4;
   isLoading = false;
@@ -23,17 +23,19 @@ export class UploadContainerComponent implements OnInit {
 
   onUploadFinished($event: FileHolder) {
     this.isLoading = true;
-    this.imageService.uploadImage($event.file)
+    this.imageService
+      .uploadImage($event.file)
       .pipe(
         flatMap(responseContext => {
           this.uploadBox.deleteAll();
           const requestContext = new EnhanceRequestContext(responseContext, this.multiplier, this.fixArtifacts);
           return this.imageService.enhanceImage(requestContext);
-      }))
+        })
+      )
       .subscribe((responseContext: ImageContext) => {
         this.isComplete.emit(responseContext);
         this.uploadBox.deleteAll();
-    });
+      });
     this.isLoading = false;
   }
 }

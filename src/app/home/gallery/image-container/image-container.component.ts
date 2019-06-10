@@ -9,7 +9,7 @@ const errorImageContext: ImageContext = {
   originalImage: {
     url: 'assets/images/warning-icon.png',
     width: 640,
-    height: 640,
+    height: 640
   }
 };
 
@@ -32,5 +32,13 @@ export class ImageContainerComponent implements OnInit {
     } else {
       return 'disabled';
     }
+  }
+
+  downloadImage() {
+    window.open(this.context.enhancedImage.url);
+  }
+
+  deleteImage() {
+
   }
 }
