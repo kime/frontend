@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NbThemeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { TranslateModule } from '@ngx-translate/core';
-import { ImageUploadModule } from 'angular2-image-upload';
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
@@ -24,7 +23,6 @@ import { AppRoutingModule } from './app-routing.module';
     NbEvaIconsModule,
     NbThemeModule.forRoot(),
     TranslateModule.forRoot(),
-    ImageUploadModule.forRoot(),
     CoreModule,
     SharedModule,
     ShellModule,

@@ -6,10 +6,8 @@ import { GalleryComponent } from './gallery.component';
 import { ImageContainerComponent } from './image-container/image-container.component';
 import { AuthenticationService, HttpCacheService, ImageService, MockAuthenticationService } from '@app/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { UploadContainerComponent } from '@app/home/gallery/upload-container/upload-container.component';
-import { MockModule } from 'ng-mocks';
-import { ImageUploadModule } from 'angular2-image-upload';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;
@@ -17,8 +15,8 @@ describe('GalleryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ThemeModule, HttpClientTestingModule, RouterTestingModule, MockModule(ImageUploadModule)],
-      declarations: [GalleryComponent, ImageContainerComponent, UploadContainerComponent],
+      imports: [ThemeModule, NbEvaIconsModule, HttpClientTestingModule, RouterTestingModule],
+      declarations: [GalleryComponent, ImageContainerComponent],
       providers: [
         ImageService,
         HttpTestingController,
@@ -26,11 +24,6 @@ describe('GalleryComponent', () => {
         { provide: AuthenticationService, useClass: MockAuthenticationService }
       ]
     })
-      .overrideModule(BrowserDynamicTestingModule, {
-        set: {
-          entryComponents: [ImageContainerComponent]
-        }
-      })
       .compileComponents();
   }));
 

@@ -8,10 +8,18 @@ nb-card-body {
 
 
 image-upload {
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+input {
+  display: none;
+}
+
+nb-icon {
+  width: 50%;
 }
 
 ::ng-deep .upload-box {

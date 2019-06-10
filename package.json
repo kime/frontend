@@ -33,7 +33,6 @@
     "@nebular/eva-icons": "^4.0.0-rc.8",
     "@nebular/theme": "^4.0.0",
     "@ngx-translate/core": "^10.0.1",
-    "angular2-image-upload": "^1.0.0-rc.2",
     "bootstrap": "^4.3.1",
     "codecov": "^3.5.0",
     "core-js": "^2.6.9",

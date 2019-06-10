@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { ThemeModule } from '../../@theme/theme.module';
+import { ThemeModule } from '@app/@theme/theme.module';
 import { AuthenticationService, MockAuthenticationService } from '@app/core';
 import { HeaderComponent } from './header.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
