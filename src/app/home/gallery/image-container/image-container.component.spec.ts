@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ThemeModule } from '@app/@theme/theme.module';
 import { ImageContainerComponent } from './image-container.component';
 import { ImageContext } from '@app/shared/interfaces';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 describe('ImageContainerComponent', () => {
   let component: ImageContainerComponent;
@@ -10,9 +11,9 @@ describe('ImageContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ ThemeModule ],
-      declarations: [ ImageContainerComponent ],
-      providers: [ { provide: ImageContext, useValue: null } ]
+      imports: [ThemeModule, NbEvaIconsModule],
+      declarations: [ImageContainerComponent],
+      providers: [{ provide: ImageContext, useValue: null }]
     }).compileComponents();
   }));
 

@@ -1,5 +1,13 @@
-<nb-card [size]="'xsmall'" [accent]="getAccentColor()" [nbSpinner]="isLoading" nbSpinnerSize="medium">
+<nb-card [size]="'small'" [accent]="getAccentColor()" [nbSpinner]="isLoading" nbSpinnerSize="medium">
   <nb-card-body>
-      <img [src]="context.originalImage.url">
+      <img [src]="context.originalImage.url" alt="context.name">
   </nb-card-body>
+  <nb-card-footer>
+    <nb-actions fullWidth size="small">
+      <nb-action icon="cloud-download-outline" (click)="downloadImage()">
+      </nb-action>
+      <nb-action icon="trash-2-outline" (click)="deleteImage()">
+      </nb-action>
+    </nb-actions>
+  </nb-card-footer>
 </nb-card>
