@@ -8,7 +8,7 @@ const credentialsKey = 'credentials';
 
 const routes = {
   login: () => `auth/login`,
-  signup: () => `auth/signup`,
+  signup: () => `auth/signup`
 };
 
 /**

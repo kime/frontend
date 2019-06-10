@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AuthenticationService} from '@app/core/authentication/authentication.service';
+import { AuthenticationService } from '@app/core/authentication/authentication.service';
 import { Credentials, EnhanceRequestContext, ImageContext } from '../shared/interfaces';
 import { Router } from '@angular/router';
 
@@ -29,22 +29,20 @@ export class ImageService {
     const httpOptions = {
       params: new HttpParams().set('name', imageFile.name),
       headers: new HttpHeaders({
-          // 'Content-Type': 'multipart/form-data',
-          Authorization: this.getAuthHeader()
-        })
-      };
+        // 'Content-Type': 'multipart/form-data',
+        Authorization: this.getAuthHeader()
+      })
+    };
 
     const formData = new FormData();
     formData.append('image', imageFile);
 
-    return this.httpClient
-      .post<ImageContext>(routes.upload(), formData, httpOptions)
-      .pipe(
-        catchError(() => {
-          console.log('Error: Cannot upload image to the API');
-          return of(new ImageContext());
-        })
-      );
+    return this.httpClient.post<ImageContext>(routes.upload(), formData, httpOptions).pipe(
+      catchError(() => {
+        console.log('Error: Cannot upload image to the API');
+        return of(new ImageContext());
+      })
+    );
   }
 
   enhanceImage(requestContext: EnhanceRequestContext): Observable<ImageContext> {
@@ -55,14 +53,12 @@ export class ImageService {
       })
     };
 
-    return this.httpClient
-      .post<ImageContext>(routes.enhance(), requestContext, httpOptions)
-      .pipe(
-        catchError(() => {
-          console.log('Error: Cannot upload image to the API');
-          return of(new ImageContext());
-        })
-      );
+    return this.httpClient.post<ImageContext>(routes.enhance(), requestContext, httpOptions).pipe(
+      catchError(() => {
+        console.log('Error: Cannot upload image to the API');
+        return of(new ImageContext());
+      })
+    );
   }
 
   getUserImages(): Observable<ImageContext[]> {
@@ -73,18 +69,15 @@ export class ImageService {
       })
     };
 
-    return this.httpClient
-      .get<ImageContext[]>(routes.images(), httpOptions)
-      .pipe(
-        catchError((error) => {
-          console.log('Error ${error.status}: Cannot fetch user images from the API');
-          if (error.status === 401) {
-            console.log('Logging out and redirecting user to login page');
-            this.authenticationService.logout().subscribe(() =>
-              this.router.navigate(['/login'], { replaceUrl: true }));
-          }
-          return of([]);
-        })
-      );
+    return this.httpClient.get<ImageContext[]>(routes.images(), httpOptions).pipe(
+      catchError(error => {
+        console.log('Error ${error.status}: Cannot fetch user images from the API');
+        if (error.status === 401) {
+          console.log('Logging out and redirecting user to login page');
+          this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+        }
+        return of([]);
+      })
+    );
   }
 }

@@ -27,16 +27,8 @@ describe('HomeComponent', () => {
         RouterTestingModule,
         MockModule(ImageUploadModule)
       ],
-      declarations: [
-        HomeComponent,
-        GalleryComponent,
-        ImageContainerComponent,
-        UploadContainerComponent
-      ],
-      providers: [
-        ImageService,
-        { provide: AuthenticationService, useClass: MockAuthenticationService }
-      ]
+      declarations: [HomeComponent, GalleryComponent, ImageContainerComponent, UploadContainerComponent],
+      providers: [ImageService, { provide: AuthenticationService, useClass: MockAuthenticationService }]
     })
       .overrideModule(BrowserDynamicTestingModule, {
         set: {

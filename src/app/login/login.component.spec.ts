@@ -13,13 +13,7 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        TranslateModule.forRoot(),
-        ReactiveFormsModule,
-        ThemeModule.forRoot(),
-        CoreModule
-      ],
+      imports: [RouterTestingModule, TranslateModule.forRoot(), ReactiveFormsModule, ThemeModule.forRoot(), CoreModule],
       declarations: [LoginComponent]
     }).compileComponents();
   }));

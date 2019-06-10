@@ -12,7 +12,7 @@ describe('ImageService', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ CoreModule, HttpClientTestingModule, RouterTestingModule],
+      imports: [CoreModule, HttpClientTestingModule, RouterTestingModule],
       providers: [
         ImageService,
         HttpCacheService,
@@ -38,7 +38,7 @@ describe('ImageService', () => {
   describe('getUserImages', () => {
     it('should return an list of ImageContexts', () => {
       // Arrange
-      const mockContexts = [ new ImageContext(), new ImageContext() ];
+      const mockContexts = [new ImageContext(), new ImageContext()];
 
       // Act
       const imageSubscription = imageService.getUserImages();
