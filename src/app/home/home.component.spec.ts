@@ -5,9 +5,9 @@ import { AuthenticationService, CoreModule, ImageService, MockAuthenticationServ
 import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { ImageContainerComponent } from './gallery/image-container/image-container.component';
 import { ThemeModule } from '../@theme/theme.module';
-import { UploadContainerComponent } from '@app/home/gallery/upload-container/upload-container.component';
+import { ImageContainerComponent } from './gallery/image-container/image-container.component';
+import { UploadContainerComponent } from './gallery/upload-container/upload-container.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
