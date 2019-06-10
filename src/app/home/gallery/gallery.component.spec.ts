@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 import { ThemeModule } from '@app/@theme/theme.module';
 import { GalleryComponent } from './gallery.component';
 import { ImageContainerComponent } from './image-container/image-container.component';
+import { UploadContainerComponent } from './upload-container/upload-container.component';
 import { AuthenticationService, HttpCacheService, ImageService, MockAuthenticationService } from '@app/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -16,7 +16,7 @@ describe('GalleryComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ThemeModule, NbEvaIconsModule, HttpClientTestingModule, RouterTestingModule],
-      declarations: [GalleryComponent, ImageContainerComponent],
+      declarations: [GalleryComponent, ImageContainerComponent, UploadContainerComponent],
       providers: [
         ImageService,
         HttpTestingController,
