@@ -35,13 +35,13 @@ describe('ImageService', () => {
   //   httpMock.verify();
   // });
 
-  describe('getUserImages', () => {
+  describe('getImages', () => {
     it('should return an list of ImageContexts', () => {
       // Arrange
       const mockContexts = [new ImageContext(), new ImageContext()];
 
       // Act
-      const imageSubscription = imageService.getUserImages();
+      const imageSubscription = imageService.getImages();
 
       // Assert
       imageSubscription.subscribe((imageContexts: ImageContext[]) => {
@@ -53,7 +53,7 @@ describe('ImageService', () => {
 
     it('should return an empty list in the case of an error', () => {
       // Act
-      const imageSubscription = imageService.getUserImages();
+      const imageSubscription = imageService.getImages();
 
       // Assert
       imageSubscription.subscribe((imageContexts: ImageContext[]) => {

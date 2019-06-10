@@ -8,6 +8,7 @@ import { Credentials, EnhanceRequestContext, ImageContext } from '../shared/inte
 import { Router } from '@angular/router';
 
 const routes = {
+  image: (id: number) => `api/v1/images/${id}`,
   images: () => `api/v1/images`,
   upload: () => `api/v1/images/upload`,
   enhance: () => `api/v1/images/enhance`
@@ -25,11 +26,50 @@ export class ImageService {
     return 'Basic ' + btoa(`${this.authenticationService.credentials.token}:${''}`);
   }
 
+  getImages(): Observable<ImageContext[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.getAuthHeader()
+      })
+    };
+
+    return this.httpClient.get<ImageContext[]>(routes.images(), httpOptions).pipe(
+      catchError(error => {
+        console.log(`Error ${error.status}: Cannot fetch user images from the API`);
+        if (error.status === 401) {
+          console.log('Logging out and redirecting user to login page');
+          this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+        }
+        return of([]);
+      })
+    );
+  }
+
+  deleteImage(imageContext: ImageContext): Observable<{}> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.getAuthHeader()
+      })
+    };
+
+    return this.httpClient.delete(routes.image(imageContext.id), httpOptions).pipe(
+      catchError(error => {
+        console.log(`Error ${error.status}: Cannot delete specified image using the API`);
+        if (error.status === 401) {
+          console.log('Logging out and redirecting user to login page');
+          this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+        }
+        return of();
+      })
+    );
+  }
+
   uploadImage(imageFile: File): Observable<ImageContext> {
     const httpOptions = {
       params: new HttpParams().set('name', imageFile.name),
       headers: new HttpHeaders({
-        // 'Content-Type': 'multipart/form-data',
         Authorization: this.getAuthHeader()
       })
     };
@@ -38,8 +78,12 @@ export class ImageService {
     formData.append('image', imageFile);
 
     return this.httpClient.post<ImageContext>(routes.upload(), formData, httpOptions).pipe(
-      catchError(() => {
-        console.log('Error: Cannot upload image to the API');
+      catchError(error => {
+        console.log(`Error ${error.status} Cannot upload image to the API`);
+        if (error.status === 401) {
+          console.log('Logging out and redirecting user to login page');
+          this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+        }
         return of(new ImageContext());
       })
     );
@@ -54,29 +98,13 @@ export class ImageService {
     };
 
     return this.httpClient.post<ImageContext>(routes.enhance(), requestContext, httpOptions).pipe(
-      catchError(() => {
-        console.log('Error: Cannot upload image to the API');
-        return of(new ImageContext());
-      })
-    );
-  }
-
-  getUserImages(): Observable<ImageContext[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: this.getAuthHeader()
-      })
-    };
-
-    return this.httpClient.get<ImageContext[]>(routes.images(), httpOptions).pipe(
       catchError(error => {
-        console.log('Error ${error.status}: Cannot fetch user images from the API');
+        console.log(`Error ${error.status} Cannot enhance image using the API`);
         if (error.status === 401) {
           console.log('Logging out and redirecting user to login page');
           this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
         }
-        return of([]);
+        return of(new ImageContext());
       })
     );
   }

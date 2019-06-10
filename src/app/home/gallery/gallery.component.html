@@ -1,7 +1,8 @@
-<app-upload-container
-  class="gallery-container"
+<app-upload-container class="gallery-container"
   (isComplete)="onUploadCompletion($event)">
 </app-upload-container>
 <div class="gallery-container" *ngFor="let imageContext of userImageContexts">
-  <app-image-container [context]=imageContext></app-image-container>
+  <app-image-container [context]=imageContext
+  (isRemoved)="onImageDeletion($event)">
+  </app-image-container>
 </div>

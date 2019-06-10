@@ -24,7 +24,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.imageService
-      .getUserImages()
+      .getImages()
       .pipe(
         finalize(() => {
           this.isLoading = false;
@@ -35,7 +35,11 @@ export class GalleryComponent implements OnInit {
       });
   }
 
-  onUploadCompletion(responseContext: ImageContext) {
-    this.userImageContexts.push(responseContext);
+  onUploadCompletion(imageContext: ImageContext) {
+    this.userImageContexts.push(imageContext);
+  }
+
+  onImageDeletion(imageContext: ImageContext) {
+    this.userImageContexts.splice(this.userImageContexts.indexOf(imageContext), 1);
   }
 }

@@ -1,54 +1,9 @@
-@import "~bootstrap/scss/mixins/_breakpoints";
-
 nb-card-body {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-image-upload {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
 input {
   display: none;
-}
-
-nb-icon {
-  width: 50%;
-}
-
-::ng-deep .upload-box {
-  --active-color: #3c9;
-  --common-radius: 3px;
-
-  background-color: #f8f8f8;
-  border-radius: var(--common-radius);
-  border: #d0d0d0 dashed 1px;
-  position: relative;
-  color: #9b9b9b;
-}
-
-::ng-deep .upload-box .img-ul-button {
-  // Override .img-ul-button alignment
-  float: none !important;
-  display: block !important;
-  text-align: center;
-}
-
-::ng-deep .upload-box .img-ul-clear {
-  // Hide .img-ul-clear element
-  display: none !important;
-}
-
-::ng-deep .upload-box .img-ul-drag-box-msg {
-  // Override .img-ul-drag-box-msg alignment
-  display: block !important;
-  text-align: center !important;
-  margin-left: 0 !important;
-  padding-bottom: 4px !important;
 }

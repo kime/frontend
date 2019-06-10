@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+import { ImageService } from '@app/core';
 import { ImageContext } from '@app/shared/interfaces';
+import { finalize } from 'rxjs/operators';
 
 const errorImageContext: ImageContext = {
   id: 0,
@@ -19,19 +21,14 @@ const errorImageContext: ImageContext = {
   styleUrls: ['./image-container.component.scss']
 })
 export class ImageContainerComponent implements OnInit {
-  isLoading = false;
   @Input() context: ImageContext = errorImageContext;
+  @Output() isRemoved = new EventEmitter<ImageContext>();
+  isLoading = false;
 
-  constructor() {}
+  constructor(private imageService: ImageService) {
+  }
 
-  ngOnInit() {}
-
-  getAccentColor(): string {
-    if (this.context.uploaded === 'error') {
-      return 'warning';
-    } else {
-      return 'disabled';
-    }
+  ngOnInit() {
   }
 
   downloadImage() {
@@ -39,6 +36,16 @@ export class ImageContainerComponent implements OnInit {
   }
 
   deleteImage() {
+    this.isLoading = true;
 
+    this.imageService
+      .deleteImage(this.context)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        }))
+      .subscribe(() => {
+        this.isRemoved.emit(this.context);
+      });
   }
 }
