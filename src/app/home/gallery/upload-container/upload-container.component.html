@@ -1,19 +1,55 @@
-<nb-card [size]="'small'"
-         [nbSpinner]="isProcessing"
-         nbSpinnerSize="giant"
-         nbSpinnerStatus="primary">
+<nb-reveal-card>
+  <nb-card-front>
+    <nb-card [size]="'small'"
+             [nbSpinner]="isProcessing"
+             nbSpinnerSize="giant"
+             nbSpinnerStatus="primary">
 
-  <nb-card-body>
-    <nb-actions fullWidth size="giant">
-      <input #imageFile
-             type="file"
-             accept="image/*"
-             (change)="processFile(imageFile.files)">
-      <nb-action icon="cloud-upload-outline"
-                 [hidden]="isProcessing"
-                 (click)="imageFile.click()">
-      </nb-action>
-    </nb-actions>
-  </nb-card-body>
+      <nb-card-body>
+        <form class="enhance-form" [hidden]="isProcessing">
+          <input #imageFile
+                 type="file"
+                 accept="image/*"
+                 style="display: none"
+                 (change)="processFile(imageFile.files)">
 
-</nb-card>
+          <nb-actions fullWidth size="giant">
+            <nb-action icon="cloud-upload-outline"
+                       (click)="imageFile.click()">
+            </nb-action>
+          </nb-actions>
+        </form>
+      </nb-card-body>
+
+      <nb-card-footer>
+        <b>Options</b>
+      </nb-card-footer>
+    </nb-card>
+  </nb-card-front>
+
+  <nb-card-back>
+    <nb-card [size]="'small'"
+             [nbSpinner]="isProcessing"
+             nbSpinnerSize="giant"
+             nbSpinnerStatus="primary">
+
+      <nb-card-body>
+        <form class="enhance-form" [hidden]="isProcessing">
+
+          <nb-select [(selected)]="multiplier"
+                     nbTooltip="Upscaling factor">
+            <nb-option value=2x>2x</nb-option>
+            <nb-option value=4x>4x</nb-option>
+          </nb-select>
+
+          <nb-select [(selected)]="fixArtifacts"
+                     nbTooltip="Fix compression artifacts">
+            <nb-option value=true>True</nb-option>
+            <nb-option value=false>False</nb-option>
+          </nb-select>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-back>
+
+</nb-reveal-card>

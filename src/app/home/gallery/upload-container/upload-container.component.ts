@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { finalize, flatMap } from 'rxjs/operators';
 
 import { ImageService } from '@app/core';
 import { EnhanceRequestContext, ImageContext } from '@app/shared/interfaces';
+import { NbCheckboxComponent } from '@nebular/theme';
 
 @Component({
   selector: 'app-upload-container',
@@ -11,9 +12,9 @@ import { EnhanceRequestContext, ImageContext } from '@app/shared/interfaces';
 })
 export class UploadContainerComponent implements OnInit {
   @Output() isComplete = new EventEmitter<ImageContext>();
-  multiplier = 4;
+  multiplier = '2x';
+  fixArtifacts = 'true';
   isProcessing = false;
-  fixArtifacts = true;
 
   constructor(private imageService: ImageService) {}
 
@@ -26,7 +27,8 @@ export class UploadContainerComponent implements OnInit {
       .uploadImage(imageFiles[0])
       .pipe(
         flatMap(responseContext => {
-          const requestContext = new EnhanceRequestContext(responseContext, this.multiplier, this.fixArtifacts);
+          const requestContext = new EnhanceRequestContext(responseContext, this.multiplier,
+            this.fixArtifacts === 'true');
           return this.imageService.enhanceImage(requestContext);
         })
       )

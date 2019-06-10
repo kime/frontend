@@ -21,11 +21,11 @@ export class EnhanceRequestContext {
   id: number;
   name: string;
   uploaded: string;
-  multiplier: number;
+  multiplier: string;
   fixArtifacts: boolean;
   originalImage: Image;
 
-  constructor(context: ImageContext, multiplier: number, fixArtifacts: boolean) {
+  constructor(context: ImageContext, multiplier: string, fixArtifacts: boolean) {
     this.id = context.id;
     this.name = context.name;
     this.uploaded = context.uploaded;
