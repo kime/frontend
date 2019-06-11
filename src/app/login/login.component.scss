@@ -7,6 +7,15 @@
   }
 }
 
+.logo-containter {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+}
+
 .login-container {
   position: absolute;
   top: 0;
