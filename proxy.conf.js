@@ -9,14 +9,14 @@ const HttpsProxyAgent = require('https-proxy-agent');
 const proxyConfig = [
   {
     context: '/api',
-    pathRewrite: { '^/api': '' },
+    pathRewrite: { '^https://api.kime.me/api': '' },
     target: 'http://0.0.0.0:3780/api',
     changeOrigin: true,
     secure: false
   },
   {
     context: '/auth',
-    pathRewrite: { '^/auth': '' },
+    pathRewrite: { '^https://api.kime.me/auth': '' },
     target: 'http://0.0.0.0:3780/auth',
     changeOrigin: true,
     secure: false

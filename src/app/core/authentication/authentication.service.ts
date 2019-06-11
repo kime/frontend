@@ -7,8 +7,8 @@ import { Credentials, LoginContext } from '@app/shared/interfaces';
 const credentialsKey = 'credentials';
 
 const routes = {
-  login: () => `auth/login`,
-  signup: () => `auth/signup`
+  login: () => `https://api.kime.me/auth/login`,
+  user: () => `https://api.kime.me/auth/user`
 };
 
 /**
@@ -63,7 +63,7 @@ export class AuthenticationService {
 
     const signupContext = { username: context.username, password: context.password };
 
-    return this.http.post<any>(routes.signup(), signupContext, httpOptions).pipe(
+    return this.http.post<any>(routes.user(), signupContext, httpOptions).pipe(
       map(response => {
         return response.username;
       })

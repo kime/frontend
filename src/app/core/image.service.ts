@@ -8,10 +8,10 @@ import { Credentials, EnhanceRequestContext, ImageContext } from '../shared/inte
 import { Router } from '@angular/router';
 
 const routes = {
-  image: (id: number) => `api/v1/images/${id}`,
-  images: () => `api/v1/images`,
-  upload: () => `api/v1/images/upload`,
-  enhance: () => `api/v1/images/enhance`
+  image: (id: number) => `https://api.kime.me/api/v1/images/${id}`,
+  images: () => `https://api.kime.me/api/v1/images`,
+  upload: () => `https://api.kime.me/api/v1/images/upload`,
+  enhance: () => `https://api.kime.me/api/v1/images/enhance`
 };
 
 @Injectable()
