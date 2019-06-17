@@ -55,7 +55,7 @@
     "@types/node": "^8.10.49",
     "codelyzer": "^4.4.4",
     "hads": "^1.7.3",
-    "htmlhint": "^0.10.0",
+    "htmlhint": "^0.11.0",
     "https-proxy-agent": "^2.0.0",
     "husky": "^0.14.3",
     "jasmine-core": "~2.99.1",
