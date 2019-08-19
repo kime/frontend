@@ -57,7 +57,7 @@
     "hads": "^1.7.3",
     "htmlhint": "^0.10.0",
     "https-proxy-agent": "^2.0.0",
-    "husky": "^0.14.3",
+    "husky": "^3.0.4",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "^4.1.0",
     "karma": "~3.0.0",
